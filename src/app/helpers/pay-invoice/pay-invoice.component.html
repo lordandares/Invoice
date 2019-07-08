@@ -1,0 +1,18 @@
+<form class="example-form">
+
+  
+    <mat-form-field class="change-container">
+        <input matInput type="number" placeholder="Total a Pagar" name="totaltoPay" [(ngModel)]="totalToPay" disabled>
+    </mat-form-field>     
+    <mat-form-field class="change-container">
+        <input matInput type="number" placeholder="Efectivo" (change)="onEfectivoChange()" name="Efectivo" [(ngModel)]="Efectivo" >
+    </mat-form-field>     
+    <mat-form-field class="change-container">
+      <input matInput type="number" placeholder="Cambio" name="Cambio" [(ngModel)]="Cambio" >
+  </mat-form-field>     
+</form>
+<button mat-fab color="primary" (click)="createInvoice()">
+    <mat-icon>print</mat-icon>
+    
+  </button>
+

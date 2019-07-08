@@ -1,0 +1,50 @@
+<div *ngIf="validateSession()" class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <span class="fill-remaining-space">
+      <button mat-icon-button (click)="toggleLetter()" class="menuvuttonlogo"><img src="../../assets/logo_t2.png" width="80px" class="logo"></button>
+      <button mat-icon-button (click)="toggle()" class="menuvutton"><mat-icon>menu</mat-icon></button>
+    </span>
+    <span class="fill-remaining-space"><h1 class="example-app-name">Armonia POS</h1></span>
+    <button mat-icon-button >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>settings</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Control Panel</span>
+        </button>
+        <button  (click)="logout()"  mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" 
+                         [style.marginTop.px]="mobileQuery.matches ? 80 : 0">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [(opened)]="opened"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="80">
+      <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let nav of fillerNav">
+            <button class="menubutton"  mat-button  (click)="onlinkClick(nav.id)" >
+                <mat-icon>{{nav.icon}}</mat-icon>
+                <span *ngIf="!mobileQueryIcon.matches">
+                  <span *ngIf="!onlyIcons">{{nav.text}}</span>
+                </span>
+            </button >
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<div *ngIf="!validateSession()">
+    <router-outlet></router-outlet>
+</div>
+

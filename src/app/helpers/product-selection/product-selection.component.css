@@ -1,0 +1,15 @@
+.product-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-row {
+    flex-direction: row;
+    float: left;
+  }
+  .product-column{
+    flex-direction: column;
+  }
+  .product-container > * {
+    width: 40%;
+  }

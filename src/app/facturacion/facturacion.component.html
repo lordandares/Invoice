@@ -1,0 +1,65 @@
+<mat-sidenav-container class="container-container">
+  <mat-sidenav #sidenav opened mode="side" position="end" [(opened)]="opened"  class="example-sidenav" [fixedInViewport]="false"
+    [fixedTopGap]="0" [fixedBottomGap]="0" >
+    <div class="sideInvoice">
+      <app-invoice-viewer [DetailGrid]="DetailGrid" [Client]="Client" [date]="DetailGrid"></app-invoice-viewer>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <mat-vertical-stepper [linear]="false" #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>{{cabeceraTitle}}</ng-template>
+              <app-client-selection (clientOutPut)="exposedClient($event)"></app-client-selection>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <div class="container">
+              <div id="content">
+                <div id="main-content">
+                  <mat-tab-group>
+                      <mat-tab>
+                          <ng-template mat-tab-label>
+                            <mat-icon>view_module</mat-icon>
+                          </ng-template>
+                          <app-product-grid (detailOutPut)="exposedAddItemGrid($event)"></app-product-grid>
+                        </mat-tab>
+                    <mat-tab>
+                      <ng-template mat-tab-label>
+                        <mat-icon>vertical_split</mat-icon>
+                      </ng-template>
+                      <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel> {{ProductosTitle}}</ng-template>
+                        <app-product-selection (detailOutPut)="exposedDetail($event)"></app-product-selection>
+                        <div class="floating-button">
+                          <button mat-fab color="primary" (click)="onAddItem()">
+                            <mat-icon>add_shopping_cart</mat-icon>
+                          </button>
+                        </div>
+                      </form>
+                    </mat-tab>
+                   
+                 
+                  </mat-tab-group>
+                </div>
+              </div>
+            </div>
+      
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Pagar</ng-template>
+            <app-pay-invoice
+              [header]="Header"
+              [detail]="DetailGrid"
+              [totalToPay]="totalToPay"
+             ></app-pay-invoice>
+            
+          </mat-step>
+        </mat-vertical-stepper>
+    <mat-chip mat-fab color="primary" (click)="sidenav.toggle()"> 
+      <mat-icon [matBadge]="totalItems" matBadgeColor="accent">shopping_cart</mat-icon>
+      Bs. {{totalToPay}}
+    </mat-chip>
+  </mat-sidenav-content>
+ 
+</mat-sidenav-container>

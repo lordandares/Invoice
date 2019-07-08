@@ -1,0 +1,8 @@
+.client-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .client-container > * {
+    width: 40%;
+  }

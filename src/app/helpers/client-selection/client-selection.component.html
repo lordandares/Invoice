@@ -1,0 +1,18 @@
+<form class="example-form">
+    <mat-form-field class="client-container">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha" disabled ngDefaultControl name="fecha"  [(ngModel)]="fecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <mat-form-field class="client-container">
+        <input type="text" placeholder="Nit" name="nit" aria-label="Asignee" matInput [formControl]="nitControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)='nitSelected($event.option.value)'>
+          <mat-option *ngFor="let option of filteredOptionsNit | async" [value]="option">
+            {{option.nit}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field class="client-container">
+          <input matInput placeholder="Nombre" (change)="onNameChange()" name="name" [(ngModel)]="name" >
+      </mat-form-field>     
+  </form>

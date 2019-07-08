@@ -1,0 +1,6 @@
+<div *ngFor="let product of products" class="car-list">
+  <a (click)="addItem($event, product)">
+    <app-product-viwer [product]="product"></app-product-viwer>
+  </a>
+    
+  </div>

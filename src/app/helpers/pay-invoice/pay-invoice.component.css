@@ -1,0 +1,8 @@
+.change-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .change-container > * {
+    width: 40%;
+  }

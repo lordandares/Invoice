@@ -1,0 +1,18 @@
+<mat-card class="product-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      {{product.name}}</mat-card-title>
+   
+  </mat-card-header>
+  <img  mat-card-sm-image [src]="sanitize(product.image)" alt="Photo of a Shiba Inu">
+  <div class="content-text">
+  <mat-card-subtitle>Precio: {{product.price}}</mat-card-subtitle>
+  <mat-card-subtitle>Cantidad Disponible: {{product.totalAbailable}}</mat-card-subtitle>
+  <mat-card-content>
+    <p>
+       <span class="span-codigo"> {{product.cod}} </span>
+    </p>
+  </mat-card-content>
+  </div>
+</mat-card>

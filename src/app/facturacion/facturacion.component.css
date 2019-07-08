@@ -1,0 +1,121 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.container-container{
+  height: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.intro {
+  height: 100%;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d231b;
+  height: 100%;
+  color: #fff;
+}
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 100%;
+  color: #3d231b;
+}
+@media (max-width: 700px) {
+  .left {
+    height: 50%;
+  }
+  .right {
+    height: 50%;
+  }
+
+  .floating-button{
+    position: absolute;
+    left: 1%;
+    top: 65%;
+    width: 50px;
+}
+}
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  height: 100%;
+}
+:host > .container {
+   
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background: none;
+}
+
+@media (max-width: 900px) {
+ 
+  :host /deep/ .mat-vertical-stepper-header {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    height: 24px;
+} 
+  :host /deep/ .mat-vertical-content-container{
+    margin-left: 8px;
+    border: 0;
+    position: relative;
+  }
+  :host /deep/ .mat-tab-group{
+    display: flex;
+    flex-direction: column;
+    margin: -15px;
+  }
+
+}
+@media (max-width: 700px) {
+  .floating-button{
+    position: absolute;
+    left: 70%;
+    top: 90%;
+    width: 50px;
+}
+   
+  
+  
+} 
+
+.span-codigo {
+    font-weight: 500;
+}
+.span-Description{
+    font-weight: 300;
+    font-size: 12px;
+}
+.sideInvoice{
+    background-color: rgb(216, 216, 216);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+:host /deep/ .mat-chip{
+  position: fixed;
+  background-color: #3f51b4;
+  color: rgba(0,0,0,.87);
+  font-size: 25px;
+  color: #fff;
+  top: 3%;
+  left: 70%;
+  cursor: pointer;
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FacturacionAngular</title>
+  <base href="/">
+  <style>
+    body{
+      margin: 0;
+    padding: 0;
+    background: url('../assets/image4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    background-position:40% 20%;
+    }
+  </style>
+  <script>
+    var res = window.location.toString();
+    var queryString = res ? res.split('#')[1] : window.location.search.slice(1);
+    if (queryString){
+      var queryString = queryString.replace('access_token=', '');
+      localStorage.setItem('currentUser', queryString);
+    }
+    
+    
+    
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

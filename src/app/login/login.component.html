@@ -1,0 +1,29 @@
+
+<div class="login-box">
+    <!--      <img src="avatar.png" class="avatar"> -->
+            <h1>Ingresar</h1>
+           
+            
+              <div class="center" >
+                <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">  
+                  <mat-form-field class="demo-full-width">  
+                         <input formControlName="username" matInput placeholder="Usuario">  
+                     </mat-form-field>  
+                     <mat-error>  
+                         <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Por avor ingrese el nombre</span>  
+                     </mat-error>  
+                     <mat-form-field class="demo-full-width">  
+                         <input formControlName="password" matInput placeholder="Password">  
+                     </mat-form-field>  
+                     <mat-error>  
+                      <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Por avor ingrese el nombre</span>  
+                  </mat-error>  
+                     <button mat-raised-button color="accent" >Login</button>  
+                     </form>
+                
+              </div>
+            
+            </div>
+        <div class="logo-box">
+            <img src="../../assets/logo_t1.png" class="logo">
+        </div>  

@@ -1,0 +1,30 @@
+<mat-card class="product-card">
+  <mat-card-header class="content-title">
+    <mat-card-title>
+      FACTURA
+    </mat-card-title>
+    <mat-card-title>
+      ORIGINAL
+    </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <div class="content-text-title">
+    <mat-card-subtitle><span class="subtitle">NIT:</span><span class="secondtitle">  {{Client.nit}}</span> </mat-card-subtitle>
+    <mat-card-subtitle><span class="subtitle">CLIENT:</span> {{Client.name}}</mat-card-subtitle>
+  <mat-card-subtitle><span class="subtitle">FECHA:</span> 12/12/2019</mat-card-subtitle>
+
+  </div>
+  
+  <mat-divider></mat-divider>
+  <div style="display: flex; flex-direction: row">
+    <div style=" overflow: hidden; flex-grow: 1">
+      <ag-grid-angular style="width: 100%; height: 300px;" 
+      class="ag-theme-material" [rowData]="DetailGrid"
+      (gridReady)="onGridReady($event)" [columnDefs]="columnDefs"
+      [rowSelection]="rowSelection" >
+    </ag-grid-angular>
+    </div>
+  </div>
+
+
+</mat-card>

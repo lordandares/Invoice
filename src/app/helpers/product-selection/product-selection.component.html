@@ -1,0 +1,36 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div fxFlexOffset="50px">
+        <app-product-viwer [product]="productViwer"></app-product-viwer>
+      </div>
+  <div  fxFlex fxFlexOffset="50px" fxFlexOffset.xs="0">
+    <mat-form-field class="product-container product-column">
+      <input type="text" placeholder="Codigo" name="codigo" aria-label="Codigo" matInput [formControl]="productContrl"
+        [matAutocomplete]="auto" (keydown.Tab)="onClickCantidad()">
+      <mat-autocomplete updatePosition="3" #auto="matAutocomplete" [displayWith]="displayFnProdcut"
+        (optionSelected)='codSelected($event.option.value)'>
+        <mat-option *ngFor="let product of filteredOptionsProducts | async" [value]="product">
+          {{product.cod}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    
+    <mat-form-field class="product-container product-column">
+        <input matInput (change)="calulateSubTotal()"   (click)="onClickCantidad()" [(ngModel)]="cantidad" type="number" placeholder="Cantidad">
+      </mat-form-field>
+    <mat-form-field class="product-container product-row ">
+    
+      <input matInput  (change)="calulateSubTotal()" [(ngModel)]="porcentual" type="number" placeholder="Descuento Porcentual">
+      
+    </mat-form-field>
+   
+
+    <mat-form-field class="product-container product-row ">
+      <input matInput (change)="calulateSubTotal()" [(ngModel)]="unitario" type="number" placeholder="Descuento Unitario">
+    </mat-form-field>
+
+    <mat-form-field class="product-container product-column">
+        <input matInput [(ngModel)]="subtotal" type="number" placeholder="Subtotal" disabled>
+      </mat-form-field>
+  </div>
+  
+</div>

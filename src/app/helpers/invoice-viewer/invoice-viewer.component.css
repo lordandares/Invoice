@@ -1,0 +1,30 @@
+.product-card {
+    width: 400px;
+    height: 1000px;
+    margin: 5px;
+    overflow: auto;
+  }
+.content-text-title{
+    padding-left: 20px;
+    font-size: 10px
+}
+.span-codigo {
+    font-weight: 500;
+}
+.span-Description{
+    font-weight: 300;
+    font-size: 11px;
+}
+.content-title{
+    justify-content: center
+}
+.subtitle{
+    font-weight: 800;
+}
+.secondtitle{
+    padding-right: 20px;
+}
+.parag{
+    font-size: 10px;
+    font-weight: 800;
+}
